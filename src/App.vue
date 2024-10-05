@@ -1,28 +1,84 @@
-<script setup lang="ts">
-import { Delete, Edit, Loading, Search, Share } from '@element-plus/icons-vue';
-</script>
-
 <template>
-  <p>
-  通过添加额外的类名 <b>is-loading</b>，你的图标就可以在 2 秒内旋转 360
-  度，但让你也可以自己改写想要的动画。
-</p>
-<el-icon :size="20">
-  <Edit />
-</el-icon>
-<el-icon color="#409EFC" class="no-inherit">
-  <Share />
-</el-icon>
-<el-icon>
-  <Delete />
-</el-icon>
-<el-icon class="is-loading">
-  <Loading />
-</el-icon>
-<el-button type="primary">
-  <el-icon style="vertical-align: middle;">
-    <Search />
-  </el-icon>
-  <span style="vertical-align: middle;"> 搜索 </span>
-</el-button>
+  <!-- 各种类型的按钮 -->
+  <p>Basic text button</p>
+  <div class="mb-4">
+    <el-button 
+    v-for="button in buttons"
+    :key="button.text"
+    :type="button.type"
+    size="large"
+    >
+    {{ button.text }}
+    </el-button>
+  </div>
+
+  <p>Background color always on</p>
+  <div class="mb-4">
+    <el-button
+    v-for="button in buttons"
+    :type="button.type"
+    size="medium"
+    text
+    bg
+    >
+    {{ button.text }}
+    </el-button>
+  </div>
+
+  <p>Disabled text button</p>
+  <div class="mb-4">
+    <el-button
+    v-for="button in buttons"
+    :type="button.type"
+    disabled
+    text
+    size="small"
+    >
+    {{ button.text }}
+    </el-button>
+  </div>
+
+  <!-- icon按钮 -->
+  <div class="mb-4">
+    <el-button type="primary" :icon="Edit">Edit</el-button>
+    <el-button type="primary" :icon="Share">Share</el-button>
+    <el-button type="primary" :icon="Delete">Delete</el-button>
+    <el-button type="primary" :icon="Search">Search</el-button>
+    <el-button type="primary" :icon="Upload">Upload</el-button>
+    <el-button type="primary">
+      Upload
+      <el-icon class="el-icon--right">
+        <Upload/>
+      </el-icon>
+    </el-button>
+  </div>
+
+  <el-button-group>
+    <el-button type="primary" :icon="ArrowLeft">Previous Page</el-button>
+    <el-button type="primary">
+      Next Page<el-icon class="el-icon--right"><ArrowRight /></el-icon>
+    </el-button>
+  </el-button-group>
+
+  <el-button-group class="ml-4">
+    <el-button type="primary" :icon="Edit" />
+    <el-button type="primary" :icon="Share" />
+    <el-button type="primary" :icon="Delete" />
+  </el-button-group>
+
+
+
 </template>
+
+<script setup lang="ts">
+import {Edit, Share, Delete, Search, Upload, ArrowLeft, ArrowRight} from "@element-plus/icons-vue"
+
+const buttons = [
+  {type: "plain", text: "plain"},
+  {type: "primary", text: "primary"},
+  {type: "success", text: "success"},
+  {type: "info", text: "info"},
+  {type: "warning", text: "warning"},
+  {type: "danger", text: "danger"},
+]
+</script>
