@@ -1,5 +1,5 @@
 <template>
-  <el-form label-width="100px" style="width: 600px;">
+  <el-form label-width="100px" style="width: 600px">
     <el-form-item label="活动名称">
       <el-input v-model="form_data.name"></el-input>
     </el-form-item>
@@ -13,13 +13,12 @@
 
     <el-form-item label="活动时间">
       <el-col :span="11">
-        <el-date-picker v-model="form_data.start_dt" style="width: 100%;">
+        <el-date-picker v-model="form_data.start_dt" style="width: 100%">
         </el-date-picker>
       </el-col>
-      <el-col :span="2" style="text-align: center;">-</el-col>
+      <el-col :span="2" style="text-align: center">-</el-col>
       <el-col :span="11">
-        <el-date-picker v-model="form_data.end_dt" style="width: 100%;">
-        </el-date-picker>
+        <el-date-picker v-model="form_data.end_dt" style="width: 100%"> </el-date-picker>
       </el-col>
     </el-form-item>
 
@@ -29,7 +28,11 @@
 
     <el-form-item label="活动性质">
       <el-checkbox-group v-model="form_data.types">
-        <el-checkbox value="美食/餐厅线上活动" label="美食/餐厅线上活动" name="types"></el-checkbox>
+        <el-checkbox
+          value="美食/餐厅线上活动"
+          label="美食/餐厅线上活动"
+          name="types"
+        ></el-checkbox>
         <el-checkbox value="AA" label="AA" name="types"></el-checkbox>
         <el-checkbox value="BB" label="BB" name="types"></el-checkbox>
       </el-checkbox-group>
@@ -51,11 +54,10 @@
       <el-button>取消</el-button>
     </el-form-item>
   </el-form>
-
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 
 const form_data = ref({
   name: "",
@@ -66,10 +68,9 @@ const form_data = ref({
   types: ["AA", "BB"],
   resource: "A资源",
   活动形式: "",
-})
+});
 
 function onSubmit() {
-  console.log('submit!')
+  console.log("submit!");
 }
-
 </script>
