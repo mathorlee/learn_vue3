@@ -8,7 +8,7 @@ class Greeter {
     }
 }
 
-let greeter = new Greeter("world");
+const greeter = new Greeter("world");
 
 class Animal {
     move(distanceInMeters: number = 0) {
