@@ -23,7 +23,7 @@
 
 <script setup>
 import { ref, getCurrentInstance } from 'vue'
-import { Dog, Greeter, greeter } from './A'
+import { Dog, Greeter, greeter } from './Main'
 
 // vue3中获取当前组件的实例对象：https://blog.csdn.net/m0_62811051/article/details/128121082
 const view = getCurrentInstance()
