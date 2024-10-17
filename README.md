@@ -37,3 +37,7 @@ npm run build
 ```sh
 npm run lint
 ```
+
+### vscode插件
+
+https://blog.csdn.net/QQ675396947/article/details/134673775

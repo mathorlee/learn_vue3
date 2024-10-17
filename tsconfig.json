@@ -1,7 +1,13 @@
 {
   "compilerOptions": {
     // ...
-    "types": ["element-plus/global"]
+    "types": ["element-plus/global"],
+
+    // How to Use Absolute Path Imports in TypeScript Projects: https://medium.com/@yan.code/why-and-how-to-use-absolute-path-imports-in-typescript-projects-86f66ec7b349
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["src/*"]
+    }
   },
   "files": [],
   "references": [

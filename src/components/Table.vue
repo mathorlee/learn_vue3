@@ -10,13 +10,7 @@
     :default-sort="{ prop: 'date', order: 'descending' }"
   >
     <el-table-column type="selection" width="50"></el-table-column>
-    <el-table-column
-      sortable
-      fixed
-      prop="date"
-      width="200"
-      label="日期"
-    ></el-table-column>
+    <el-table-column sortable fixed prop="date" width="200" label="日期"></el-table-column>
     <el-table-column sortable prop="name" width="200" label="姓名"></el-table-column>
     <el-table-column sortable prop="address" width="400" label="地址"></el-table-column>
   </el-table>
@@ -28,47 +22,50 @@
 </template>
 
 <script setup>
-import { ref, getCurrentInstance } from "vue";
+import { ref, getCurrentInstance } from 'vue'
+import { Dog, Greeter, greeter } from './a'
 
 // vue3中获取当前组件的实例对象：https://blog.csdn.net/m0_62811051/article/details/128121082
-const view = getCurrentInstance();
+const view = getCurrentInstance()
 
 const rows = ref([
   {
-    date: "2016-05-02",
-    name: "王小虎",
-    address: "上海市普陀区金沙江路 1518 弄",
+    date: '2016-05-02',
+    name: '王小虎',
+    address: '上海市普陀区金沙江路 1518 弄'
   },
   {
-    date: "2016-07-02",
-    name: "张三",
-    address: "上海市普陀区金沙江路 1518 弄",
+    date: '2016-07-02',
+    name: '张三',
+    address: '上海市普陀区金沙江路 1518 弄'
   },
   {
-    date: "2016-06-02",
-    name: "李四",
-    address: "上海市普陀区金沙江路 1518 弄",
+    date: '2016-06-02',
+    name: '李四',
+    address: '上海市普陀区金沙江路 1518 弄'
   },
   {
-    date: "2016-05-02",
-    name: "王五",
-    address: "上海市普陀区金沙江路 1518 弄",
-  },
-]);
+    date: '2016-05-02',
+    name: '王五',
+    address: '上海市普陀区金沙江路 1518 弄'
+  }
+])
 
-const currentRow = ref("");
+const currentRow = ref('')
 
 function onChange(val) {
-  currentRow.value = val;
-  console.log(currentRow.value);
+  console.log(greeter)
+  alert('你好，' + greeter.greeting)
+  currentRow.value = val
+  console.log(currentRow.value)
 }
 
 function doSelect(val) {
-  console.log(val);
-  view.refs.tableView.setCurrentRow(val);
+  console.log(val)
+  view.refs.tableView.setCurrentRow(val)
 }
 
 function cancleSelect() {
-  view.refs.tableView.setCurrentRow(null);
+  view.refs.tableView.setCurrentRow(null)
 }
 </script>
